@@ -5,16 +5,16 @@ namespace Czhou\Yidun;
  * @author Charles Zhou
  */
 class SecretPair {
-	public $secret_id;
-	public $secret_key;
+	public $secretId;
+	public $secretKey;
 
 	/**
 	 * 构造函数
-	 * @param $secret_id 密钥对id
-	 * @param $secret_key 密钥对key
+	 * @param $secretId 密钥对id
+	 * @param $secretKey 密钥对key
 	 */
-    public function __construct($secret_id, $secret_key) {
-        $this->secret_id  = $secret_id;
-        $this->secret_key = $secret_key;
+    public function __construct($secretId, $secretKey) {
+        $this->secretId  = $secretId;
+        $this->secretKey = $secretKey;
     }
 }

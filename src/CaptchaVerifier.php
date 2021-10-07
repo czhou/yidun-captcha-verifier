@@ -34,7 +34,7 @@ class CaptchaVerifier {
         $params["version"] = self::$YIDUN_CAPTCHA_API_VERSION;
         $params["timestamp"] = sprintf("%d", round(microtime(true)*1000));// time in milliseconds
         $params["nonce"] = sprintf("%d", rand()); // random int
-        $params["signature"] = $this->sign($this->secretPair->secret_key, $params);
+        $params["signature"] = $this->sign($this->secretPair->secretKey, $params);
 
         $result = $this->send_http_request($params);
         return array_key_exists('result', $result) ? $result['result'] : false;
@@ -42,17 +42,17 @@ class CaptchaVerifier {
 
     /**
      * 计算参数签名
-     * @param $secret_key 密钥对key
+     * @param $secretKey 密钥对key
      * @param $params 请求参数
      */
-    private function sign($secret_key, $params){
+    private function sign($secretKey, $params){
         ksort($params); // 参数排序
         $buff="";
         foreach($params as $key=>$value){
             $buff .=$key;
             $buff .=$value;
         }
-        $buff .= $secret_key;
+        $buff .= $secretKey;
         return md5(mb_convert_encoding($buff, "utf8", "auto"));
     }
 

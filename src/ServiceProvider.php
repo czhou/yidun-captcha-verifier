@@ -9,8 +9,8 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
     public function register()
     {
         $this->app->singleton(CaptchaVerifier::class, function(){
-            $secretPair = new SecretPair(config('services.YiDun.secret_id'), config('services.YiDun.secret_id'));
-            return new CaptchaVerifier(config('services.YiDun.captcha_id'), $secretPair);
+            $secretPair = new SecretPair(config('services.YiDunCaptchaVerifier.secret_id'), config('services.YiDunCaptchaVerifier.secret_key'));
+            return new CaptchaVerifier(config('services.YiDunCaptchaVerifier.captcha_id'), $secretPair);
         });
 
         $this->app->alias(CaptchaVerifier::class, 'YiDunCaptchaVerifier');
