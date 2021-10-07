@@ -1,0 +1,24 @@
+{
+    "name": "czhou/yidun-captcha-verifier",
+    "description": "易盾行为验证码校验",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Charles Zhou",
+            "email": "fidy@fidy.net"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Czhou\\Yidun\\": "src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Czhou\\Yidun\\ServiceProvider"
+            ]
+        }
+    }
+}
